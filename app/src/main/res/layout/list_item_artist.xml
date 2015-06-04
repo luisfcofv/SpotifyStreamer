@@ -6,16 +6,16 @@
     
     <ImageView
         android:id="@+id/list_item_artist_imageview"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:contentDescription="Something"/>
+        android:layout_width="@dimen/image_thumbnail_width"
+        android:layout_height="@dimen/image_thumbnail_height"
+        android:layout_margin="@dimen/default_margin"
+        android:contentDescription="@string/artist_image_description"/>
 
     <TextView
         android:id="@+id/list_item_artist_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:minHeight="?android:listPreferredItemHeight"
         android:gravity="center_vertical|start" />
 

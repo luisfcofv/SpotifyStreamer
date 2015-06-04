@@ -1,10 +1,8 @@
 package mx.luisflores.spotifystreamer.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,31 +14,10 @@ import kaaes.spotify.webapi.android.models.Artist;
 import kaaes.spotify.webapi.android.models.Image;
 import mx.luisflores.spotifystreamer.R;
 
-public class ArtistAdapter extends BaseAdapter {
+public class ArtistAdapter extends BasicAdapter {
 
-    private Context mContext;
-    private LayoutInflater mInflater;
-    private ArrayList<Artist> mArtistList;
-
-    public ArtistAdapter(Context context, ArrayList<Artist> artistList) {
-        mContext = context;
-        mArtistList = artistList;
-        mInflater = LayoutInflater.from(context);
-    }
-
-    @Override
-    public int getCount() {
-        return mArtistList.size();
-    }
-
-    @Override
-    public Object getItem(int index) {
-        return mArtistList.get(index).name;
-    }
-
-    @Override
-    public long getItemId(int index) {
-        return 0;
+    public ArtistAdapter(Context context, ArrayList<?> list) {
+        super(context, list);
     }
 
     @Override
@@ -55,7 +32,7 @@ public class ArtistAdapter extends BaseAdapter {
             viewHolder = (ArtistViewHolder) convertView.getTag();
         }
 
-        Artist artist = mArtistList.get(index);
+        Artist artist = (Artist) mList.get(index);
         viewHolder.artistTextView.setText(artist.name);
 
         if (artist.images.size() > 0) {
@@ -67,6 +44,7 @@ public class ArtistAdapter extends BaseAdapter {
     }
 
     private class ArtistViewHolder {
+
         public TextView artistTextView;
         public ImageView thumbnailImageView;
 
@@ -75,5 +53,4 @@ public class ArtistAdapter extends BaseAdapter {
             artistTextView = (TextView) view.findViewById(R.id.list_item_artist_textview);
         }
     }
-
 }

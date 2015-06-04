@@ -7,12 +7,12 @@ import android.view.MenuItem;
 
 import mx.luisflores.spotifystreamer.R;
 
-public class ArtistDetailActivity extends ActionBarActivity {
+public class TopTracksActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_artist_detail);
+        setContentView(R.layout.activity_top_tracks);
     }
 
 

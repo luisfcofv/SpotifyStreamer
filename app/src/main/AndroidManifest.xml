@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.ArtistDetailActivity"
+            android:name=".activities.TopTracksActivity"
             android:label="@string/title_activity_artist_detail"
             android:parentActivityName=".activities.MainActivity" >
             <meta-data

@@ -21,7 +21,7 @@ import kaaes.spotify.webapi.android.SpotifyService;
 import kaaes.spotify.webapi.android.models.Artist;
 import kaaes.spotify.webapi.android.models.ArtistsPager;
 import mx.luisflores.spotifystreamer.R;
-import mx.luisflores.spotifystreamer.activities.ArtistDetailActivity;
+import mx.luisflores.spotifystreamer.activities.TopTracksActivity;
 import mx.luisflores.spotifystreamer.adapter.ArtistAdapter;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -72,9 +72,14 @@ public class SearchFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                String artist = (String) adapterView.getItemAtPosition(index);
-                Intent intent = new Intent(getActivity(), ArtistDetailActivity.class)
-                        .putExtra(ArtistDetailFragment.SPOTIFY_ARTIST, artist);
+                Artist artist = (Artist) adapterView.getItemAtPosition(index);
+                String artistName = artist.name;
+                String artistId = artist.id;
+
+                Intent intent = new Intent(getActivity(), TopTracksActivity.class);
+                intent.putExtra(TopTracksFragment.SPOTIFY_ARTIST, artistName);
+                intent.putExtra(TopTracksFragment.SPOTIFY_ARTIST_ID, artistId);
+
                 startActivity(intent);
             }
         });
