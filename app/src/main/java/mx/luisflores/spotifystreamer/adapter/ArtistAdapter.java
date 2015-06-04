@@ -35,7 +35,7 @@ public class ArtistAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int index) {
-        return mArtistList.get(index);
+        return mArtistList.get(index).name;
     }
 
     @Override
